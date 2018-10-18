@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+group 'SQLite_Client'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group:'org.xerial', name:'sqlite-jdbc', version:'3.8.11.2'
+}
+
+
+//create a single Jar with all dependencies
+task first(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Jar File Example',
+                'Implementation-Version': version,
+                'Main-Class': 'Tests.SQLite_Client'
+    }
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}

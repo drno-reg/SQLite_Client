@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+
+    <groupId>groupId</groupId>
+    <artifactId>SQLite_Client</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+
+    <!-- Output to jar format -->
+    <packaging>jar</packaging>
+
+<properties>
+<java.version>1.8</java.version>
+<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+</properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.xerial</groupId>
+            <artifactId>sqlite-jdbc</artifactId>
+            <version>3.8.11.2</version>
+        </dependency>
+    </dependencies>
+
+
+    <build>
+        <defaultGoal>install</defaultGoal>
+        <finalName>sqlite_client</finalName>
+
+
+
+        <plugins>
+            <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+
+            <artifactId>maven-jar-plugin</artifactId>
+
+            <configuration>
+                <goal>jar:inplace</goal>
+
+
+                <archive>
+                    <addMavenDescriptor>true</addMavenDescriptor>
+                    <!--<attachToBuild>true</attachToBuild>-->
+                    <manifest>
+                        <addClasspath>true</addClasspath>
+                        <classpathPrefix>lib/</classpathPrefix>
+                        <mainClass>Tests.SQLite_Client</mainClass>
+                    </manifest>
+                    <!--<manifestEntries>-->
+                        <!--<Class-Path>teradataLibs/query-execution-service.jar teradataLibs/tdgssconfig.jar teradataLibs/terajdbc4.jar</Class-Path>-->
+                    <!--</manifestEntries>-->
+                </archive>
+            </configuration>
+
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>make-assembly</id> &lt;!&ndash; this is used for inheritance merges &ndash;&gt;-->
+                        <!--<phase>package</phase> &lt;!&ndash; bind to the packaging phase &ndash;&gt;-->
+                        <!--<goals>-->
+                            <!--<goal></goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            </plugin>
+
+            <!--<plugin>-->
+                <!--<artifactId>maven-jar-plugin</artifactId>-->
+                <!--<version>3.0.0</version>-->
+                <!--<configuration>-->
+                    <!--<goal>jar:inplace</goal>-->
+                    <!--<archive>-->
+                        <!--<manifestFile>META-INF/MANIFEST.MF</manifestFile>-->
+                    <!--</archive>-->
+                    <!--<outputDirectory>artifacts</outputDirectory>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+
+            <!--<executions>-->
+                <!--<execution>-->
+                    <!--<phase>process-test-resources</phase>-->
+                    <!--<goals>-->
+                        <!--<goal>time</goal>-->
+                    <!--</goals>-->
+                <!--</execution>-->
+            <!--</executions>-->
+
+        </plugins>
+    </build>
+
+</project>
