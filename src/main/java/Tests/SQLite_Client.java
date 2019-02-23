@@ -14,7 +14,7 @@ public class SQLite_Client {
         Statement stmt = null;
         try {
             Class.forName("org.sqlite.JDBC");
-            c = DriverManager.getConnection("jdbc:sqlite://home//drno//databases//sqlite//example.db");
+            c = DriverManager.getConnection("jdbc:sqlite://opt//databases//sqlite//example.db");
             c.setAutoCommit(false);
             System.out.println("Opened database successfully");
 
